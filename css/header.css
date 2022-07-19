@@ -1,0 +1,144 @@
+:root{
+	--primary-color: #8F44FD;
+	--secondary-color: #333333;
+	--accent-color: white;
+	--accent-color-blur: rgba(255, 255, 255, 0.40);
+}
+
+.fas{
+	font-size: 30px;
+}
+
+header{
+	/* position: fixed; */
+	width: 100%;
+	max-width: 1600px;
+	margin: auto;
+	/* background-color: red; */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.brand-container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.brand-name a{
+	color: var(--secondary-color);
+}
+
+.brand-name h1{
+	font-weight: 300;
+	margin-left: 50px;
+	font-size: 30px;
+	position: relative;
+}
+
+.brand-name h1::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 10px;
+	z-index: -1;
+	width: 100%;
+	transform: scaleX(0);
+	border: 5px solid var(--primary-color);
+	transition: all .5s ease-in-out;
+	transform-origin: left;
+}
+
+.brand-name h1:hover::after{
+	transform: scaleX(1);
+	transition: all .5s ease-in-out;
+}
+
+.dark-mode-toggler-mob{
+	display: none;
+}
+
+header ul li{
+	display: inline-block;
+	margin-left: 30px;
+	text-transform: capitalize;
+	font-size: 20px;
+	transition: all .5s ease-in-out;
+	color: var(--secondary-color);
+}
+
+header ul li:hover{
+	transform: translateY(-5px);
+	transition: all .2s ease-in-out;
+	color: var(--primary-color);
+}
+
+.hamburger{
+	position: relative;
+	visibility: hidden;
+}
+
+/* .hamburger::after{
+	content: '';
+	height: 20px;
+	width: 20px;
+	background-color: var(--primary-color);
+	z-index: -1;
+	position: absolute;
+	bottom: 3px;
+	right: -5px;
+	transform: scale(0);
+	transition: .5s ease-out;
+	transform-origin: top left;
+}
+
+.hamburger:hover::after{
+	position: fixed;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	transform: scale(1);
+	transition: .5s ease-out;
+} */
+
+.mob-nav{
+	display: none;
+}
+
+
+
+@media (max-width: 768px){
+	.hamburger{
+		visibility: unset;
+	}
+	nav{
+		display: none;
+	}
+
+	.dark-mode-toggler-mob{
+		display: block;
+	}
+
+	.brand-container{
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.brand-name h1{
+		margin-left: 0;
+		font-size: 25px;
+	}
+
+	.mob-nav{
+		display: none;
+		width: 100vw;
+		height: 100vh;
+		background-color: var(--primary-color);
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+}
